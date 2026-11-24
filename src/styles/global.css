@@ -38,20 +38,24 @@ body {
 	font-family: "Atkinson", sans-serif;
 	margin: 0;
 	padding: 0;
-	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
-	background-size: 100% 600px;
+	background: rgb(var(--surface));
+	color: rgb(var(--text-primary));
+
+	font-size: 18px;
+	line-height: 1.75;
+	font-weight: 400;
+
 	word-wrap: break-word;
 	overflow-wrap: break-word;
-	color: rgb(var(--gray-dark));
-	font-size: 20px;
-	line-height: 1.7;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 main {
-	width: 720px;
-	max-width: calc(100% - 2em);
-	margin: auto;
-	padding: 3em 1em;
+	width: 900px;
+	max-width: calc(100% - 3rem);
+	margin: 0 auto;
+	padding: 4rem 1.5rem;
 }
 h1,
 h2,
@@ -59,20 +63,24 @@ h3,
 h4,
 h5,
 h6 {
-	margin: 0 0 0.5rem 0;
-	color: rgb(var(--black));
+	color: rgb(var(--text-primary));
+	font-weight: 700;
 	line-height: 1.2;
+	margin-bottom: 0.75rem;
+	letter-spacing: -0.02em;
 }
+
 h1 {
-	font-size: 3.052em;
+	font-size: 3rem;
 }
+
 h2 {
-	font-size: 2.441em;
+	font-size: 2rem;
+	margin-top: 2rem;
 }
 h3 {
-	font-size: 1.953em;
-}
-h4 {
+	font-size: 1.5rem;
+}h4 {
 	font-size: 1.563em;
 }
 h5 {
@@ -84,9 +92,16 @@ b {
 }
 a {
 	color: var(--accent);
+	text-decoration: none;
+	transition: color 0.2s ease;
 }
+
 a:hover {
-	color: var(--accent);
+	color: var(--accent-hover);
+}
+
+.prose a {
+	font-weight: 600;
 }
 p {
 	margin-bottom: 1em;
@@ -103,29 +118,51 @@ input {
 }
 table {
 	width: 100%;
+	border-collapse: collapse;
+	margin: 2rem 0;
+}
+
+th,
+td {
+	padding: 0.9rem;
+	text-align: left;
+	border-bottom: 1px solid rgb(var(--border));
+}
+
+th {
+	background: rgb(var(--surface-alt));
+	font-weight: 700;
 }
 img {
 	max-width: 100%;
 	height: auto;
-	border-radius: 8px;
+	border-radius: 12px;
+	box-shadow: var(--shadow);
 }
 code {
-	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
-	border-radius: 2px;
+	padding: 0.15rem 0.35rem;
+	background: rgb(var(--surface-alt));
+	border-radius: 4px;
+	font-size: 0.9em;
 }
+
 pre {
-	padding: 1.5em;
-	border-radius: 8px;
+	background: #111827;
+	color: #e5e7eb;
+	padding: 1.5rem;
+	border-radius: 12px;
+	overflow-x: auto;
 }
 pre > code {
 	all: unset;
 }
 blockquote {
 	border-left: 4px solid var(--accent);
-	padding: 0 0 0 20px;
-	margin: 0px;
-	font-size: 1.333em;
+	padding-left: 1rem;
+	margin: 1.5rem 0;
+	color: rgb(var(--text-secondary));
+	font-size: 1.05rem;
+	font-style: italic;
 }
 hr {
 	border: none;
@@ -156,4 +193,32 @@ hr {
 	clip-path: inset(50%);
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
+}
+
+section {
+	margin-bottom: 4rem;
+}
+
+.card {
+	background: white;
+	border: 1px solid rgb(var(--border));
+	border-radius: 16px;
+	padding: 2rem;
+	box-shadow: var(--shadow);
+}
+
+.button {
+	display: inline-block;
+	background: var(--accent);
+	color: white;
+	padding: 0.85rem 1.5rem;
+	border-radius: 8px;
+	font-weight: 600;
+	text-decoration: none;
+	transition: all 0.2s ease;
+}
+
+.button:hover {
+	background: var(--accent-hover);
+	transform: translateY(-1px);
 }
